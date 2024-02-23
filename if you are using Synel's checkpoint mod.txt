@@ -1,0 +1,32 @@
+/* If you are using Synel's checkpoint mod, replace midwayFlag.yaml with this: */
+
+--- # By Synel, helped by Nin0 (tysm <3)
+source_files: [../src/midwayFlag.cpp]
+hooks:
+  - name: midwayFlagClassSize
+    type: patch
+    addr_pal: 0x807E2048
+    data: '3860050A' # 1248 + 1 + 1 + 8 + 32
+
+  - name: midwayFlagNewOnCreate
+    type: add_func_pointer
+    src_addr_pal: 0x80958518
+    target_func: 'midwayFlagNewOnCreate(daChukanPoint_c *)'
+
+  - name: midwayFlagNewOnExecute
+    type: add_func_pointer
+    src_addr_pal: 0x80958530
+    target_func: 'midwayFlagNewOnExecute(daChukanPoint_c *)'
+
+  - name: dontRemoveMyActivePhysics1
+    type: nop_insn
+    area_pal: 0x807E3000
+
+  - name: dontRemoveMyActivePhysics2
+    type: nop_insn
+    area_pal: 0x807E32A8
+
+/*
+so you might ask why, and that's because this mod is known to cause issues with Synel's checkpoint mod. All we are doing is removing some unnecessary code.
+btw, I have no idea why this breaks. (Lurker told me this.) There might be other mods that break with this, tell me in the issue tab.
+*/

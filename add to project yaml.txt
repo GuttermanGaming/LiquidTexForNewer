@@ -1,0 +1,8 @@
+/*
+add this to the NewerProject / [YourProjectNameProject].yaml file under the MODULES section. Should be fairly obvious but y'know how it is
+MAKE SURE TO ADD THESE TO THE BOTTOM OF THE FILE AND NOT ON THE TOP, IT CAN CAUSE ISSUES.
+*/  
+
+- processed/k_stdlib.yaml
+- processed/liquidsTex.yaml
+- processed/lavawaves.yaml

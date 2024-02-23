@@ -1,0 +1,50 @@
+// add the following to the game.h. (dWaterInfo_s and dWaterManager_c already exist, replace them and don't forget to add the WaterData struct!)
+
+struct dWaterInfo_s {
+	float x, y, z, width, height;
+	int isInUse;
+	u8 type, layer;
+};
+
+struct WaterData {
+    float x;
+    float y;
+    float z;
+    float width;
+    float height;
+    u32 isInUse;
+    u8 type; /*        0 = water
+                    1 = lava
+                    2 = poison
+                    3 = round bubble
+                    4 = tall bubble
+                    5 = wide bubble */
+    u8 layer;
+    u16 pad;
+};
+
+class dWaterManager_c {
+    public:
+        WaterData data[80];
+        float current;
+
+        static dWaterManager_c *instance;
+
+        dWaterManager_c() { instance = this; }
+        ~dWaterManager_c() { instance = 0; }
+
+        void setup();
+        int addBlock(WaterData *block);
+
+    private: // ?
+        int isPointWithinSpecifiedBlock(VEC2 *pos, int blockID);
+        int getAngleOfVector(VEC2 *vec);
+        int isPointWithinBubbleInternal(VEC2 *pos, int blockID, VEC2 *pOutVec, float *pFloat, s16 *pShort);
+
+    public:
+        int queryPosition(VEC2 *pos, VEC2 *pOutBlockPos, float *pOutFloat, s16 *pOutAngle, int layer);
+        int isPositionWithinBubble(VEC2 *pos, VEC2 *pOutBlockPos, int blockID, int layer);
+        void removeBlock(int blockID);
+        void setPosition(VEC3 *pos, int blockID);
+        void setGeometry(VEC3 *pos, float width, float height, int blockID);
+};
