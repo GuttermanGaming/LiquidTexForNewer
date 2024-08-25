@@ -1,10 +1,5 @@
 	/* Simply copy and paste this into your kamek_pal.x file in Newer 1.3's kamek. you can delete this line! */
 
-        /* 
-	Compileable LiquidTex by aqua21
-	all code and relocs by Nin0!
-	*/
-
 	returnFromGetLavaWavesSubType = 0x80075524;
 	returnFromSaveLiquidSettings = 0x807b4d34;
 	continueBGpolyCreate = 0x807b4d14;
