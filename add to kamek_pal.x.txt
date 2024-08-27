@@ -41,3 +41,6 @@
 	aWm_en_magmaw_0 = 0x80311890;
 	aWm_en_poisonin = 0x803118a0;
 	aWm_en_poisonwa = 0x803118b4;
+
+	returnFromUseDifferentSplashEffects3 = 0x80a1dd14;
+	returnFromUseDifferentSplashEffects4 = 0x80a1dcdc;
